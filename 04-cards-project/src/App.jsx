@@ -1,121 +1,126 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Card from './components/card'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+
+const jobs = [
+  {
+    brandlogo: "https://cdn2.hubspot.net/hubfs/53/image8-2.jpg",
+    company: "Google",
+    datePosted: "5 days ago",
+    post: "Frontend Developer",
+    tag1: "Full Time",
+    tag2: "Mid Level",
+    pay: "$65/hour",
+    location: "Mumbai, India"
+  },
+  {
+    brandlogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Microsoft_icon.svg/250px-Microsoft_icon.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+    company: "Microsoft",
+    datePosted: "1 week ago",
+    post: "Product Designer",
+    tag1: "Full Time",
+    tag2: "Senior Level",
+    pay: "$58/hour",
+    location: "Bengaluru, India"
+  },
+  {
+    brandlogo: "https://1000logos.net/wp-content/uploads/2016/10/Amazon-logo-meaning.jpg",
+    company: "Amazon",
+    datePosted: "3 days ago",
+    post: "Software Engineer",
+    tag1: "Full Time",
+    tag2: "Junior Level",
+    pay: "$48/hour",
+    location: "Hyderabad, India"
+  },
+  {
+    brandlogo: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/3840px-Spotify_App_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+    company: "Spotify",
+    datePosted: "2 weeks ago",
+    post: "UI/UX Designer",
+    tag1: "Part Time",
+    tag2: "Mid Level",
+    pay: "$42/hour",
+    location: "Remote, India"
+  },
+  {
+    brandlogo: "https://miro.medium.com/1*-_Oy1F9RhlYwtRGSyNEj9w.png",
+    company: "Airbnb",
+    datePosted: "10 days ago",
+    post: "Product Manager",
+    tag1: "Full Time",
+    tag2: "Senior Level",
+    pay: "$72/hour",
+    location: "Mumbai, India"
+  },
+  {
+    brandlogo: "https://s3-figma-hubfile-images-production-cdn-cgi.figma.com/cdn-cgi/image/format=auto,quality=85/hub/file/carousel/img/b8d00b2e389e3a38f115ea00f7dc3dff3ef4f337/dbc32aa496f21ffa8508a4f6432d1e6c6f76e3b1",
+    company: "Figma",
+    datePosted: "4 weeks ago",
+    post: "Frontend Engineer",
+    tag1: "Full Time",
+    tag2: "Mid Level",
+    pay: "$55/hour",
+    location: "Pune, India"
+  },
+  {
+    brandlogo: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/3840px-Notion-logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+    company: "Notion",
+    datePosted: "6 days ago",
+    post: "Content Designer",
+    tag1: "Part Time",
+    tag2: "Junior Level",
+    pay: "$35/hour",
+    location: "Remote, India"
+  },
+  {
+    brandlogo: "https://www.designyourway.net/blog/wp-content/uploads/2024/12/Stripe-logo-featured.jpg",
+    company: "Stripe",
+    datePosted: "8 weeks ago",
+    post: "Backend Developer",
+    tag1: "Full Time",
+    tag2: "Senior Level",
+    pay: "$68/hour",
+    location: "Bengaluru, India"
+  },
+  {
+    brandlogo: "https://images.seeklogo.com/logo-png/27/2/shopify-logo-png_seeklogo-273895.png",
+    company: "Shopify",
+    datePosted: "3 weeks ago",
+    post: "Web Developer",
+    tag1: "Part Time",
+    tag2: "Junior Level",
+    pay: "$38/hour",
+    location: "Delhi, India"
+  },
+  {
+    brandlogo: "https://1000logos.net/wp-content/uploads/2016/10/Adobe-Logo-1993.jpg",
+    company: "Adobe",
+    datePosted: "10 weeks ago",
+    post: "Visual Designer",
+    tag1: "Full Time",
+    tag2: "Mid Level",
+    pay: "$52/hour",
+    location: "Noida, India"
+  }
+];
+
+console.log(jobs);
+
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className='parent'>
 
-      <div className="ticks"></div>
+      {jobs.map(function(elem,idx){
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        return <div key={idx}>
+            <Card key={elem.company} company={elem.company} datePosted={elem.datePosted} post={elem.post} tag1={elem.tag1} tag2={elem.tag2} pay={elem.pay} brandlogo={elem.brandlogo} />
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      })}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+
+    </div>
   )
 }
 
